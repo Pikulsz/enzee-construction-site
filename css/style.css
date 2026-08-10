@@ -1,0 +1,384 @@
+/* =====================================================================
+   ENZEE CONSTRUCTION — STYLESHEET
+   =====================================================================
+   CSS controls how the HTML looks: colors, spacing, fonts, layout.
+   Each rule looks like this:
+
+     selector {
+       property: value;
+     }
+
+   The "selector" says WHAT to style (a tag, a class like .hero, or an
+   id like #booking). The properties inside the { } say HOW to style it.
+
+   TIP: To change the site's main color, just change the --primary and
+   --primary-dark values below — every button, link, and accent color
+   is built from those two variables.
+   ===================================================================== */
+
+/* ---------- 1. VARIABLES (change these to re-theme the whole site) ---------- */
+:root {
+  --primary: #c0392b;        /* main brand color (a roofing red/brick tone) */
+  --primary-dark: #922b21;   /* darker shade, used for hover states */
+  --dark: #1c1c1c;           /* near-black, used for headings/footer */
+  --gray: #5f5f5f;           /* body text gray */
+  --light-bg: #f7f5f3;       /* light section background */
+  --white: #ffffff;
+  --radius: 10px;
+  --max-width: 1150px;
+}
+
+/* ---------- 2. RESET / BASE STYLES ----------
+   Browsers apply their own default spacing to things like <body> and
+   <ul>. This section clears that out so we start from a clean slate. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--gray);
+  line-height: 1.6;
+  background: var(--white);
+}
+
+h1, h2, h3 {
+  color: var(--dark);
+  line-height: 1.25;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reusable "container" that centers content and adds side padding.
+   Almost every section wraps its content in <div class="container"> */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- 3. BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: 1.05rem;
+}
+
+/* ---------- 4. HEADER / NAV ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark);
+}
+.logo span {
+  color: var(--primary);
+}
+
+.main-nav {
+  display: flex;
+  gap: 28px;
+}
+.main-nav a {
+  font-weight: 600;
+  color: var(--dark);
+}
+.main-nav a:hover {
+  color: var(--primary);
+}
+
+.nav-cta {
+  display: inline-block;
+}
+
+/* Hamburger button — hidden by default, shown only on small screens */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.menu-toggle span {
+  height: 3px;
+  background: var(--dark);
+  border-radius: 2px;
+}
+
+/* ---------- 5. HERO ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--dark), #3a2323 70%);
+  color: var(--white);
+  padding: 110px 0;
+  text-align: center;
+}
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 18px;
+}
+.hero-sub {
+  max-width: 620px;
+  margin: 0 auto 32px;
+  color: #e7e0dc;
+  font-size: 1.1rem;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- 6. TRUST STRIP ---------- */
+.trust-strip {
+  background: var(--light-bg);
+  padding: 32px 0;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+.trust-item i {
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.trust-item p {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* ---------- 7. GENERIC SECTION SPACING ---------- */
+.section {
+  padding: 90px 0;
+}
+.section-alt {
+  background: var(--light-bg);
+}
+.section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.section-sub {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+/* ---------- 8. SERVICES ---------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.service-card {
+  background: var(--white);
+  border: 1px solid #eee;
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+}
+.service-card i {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+.service-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+}
+
+/* ---------- 9. ABOUT ---------- */
+.about-grid {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.about-text p {
+  margin-bottom: 24px;
+}
+.checklist li {
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: var(--dark);
+}
+.checklist i {
+  color: var(--primary);
+  margin-right: 10px;
+}
+
+/* ---------- 10. SERVICE AREA ---------- */
+.area-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+.area-list span {
+  background: var(--light-bg);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* ---------- 11. BOOKING ---------- */
+.booking-embed {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid #eee;
+}
+.booking-placeholder {
+  padding: 60px 24px;
+  text-align: center;
+}
+.booking-placeholder i {
+  font-size: 2.4rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+.booking-placeholder .small {
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 8px;
+}
+
+/* ---------- 12. CONTACT ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  text-align: center;
+}
+.contact-item i {
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.contact-item h3 {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+/* ---------- 13. FOOTER ---------- */
+.site-footer {
+  background: var(--dark);
+  color: #bbb;
+  padding: 28px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* =====================================================================
+   14. RESPONSIVE / MOBILE STYLES
+   These rules only apply when the screen is 850px wide or narrower
+   (phones and small tablets). This is called a "media query".
+   ===================================================================== */
+@media (max-width: 850px) {
+  .main-nav {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.06);
+    transition: max-height 0.25s ease;
+  }
+  .main-nav.open {
+    max-height: 320px;
+  }
+  .main-nav a {
+    width: 100%;
+    padding: 16px 0;
+    text-align: center;
+    border-top: 1px solid #f0f0f0;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-cta {
+    display: none;
+  }
+  .services-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero {
+    padding: 80px 0;
+  }
+}

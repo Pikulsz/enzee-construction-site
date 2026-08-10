@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--
+  ENZEE CONSTRUCTION — WEBSITE
+  =============================
+  This is a plain HTML/CSS/JS website. No frameworks, no build tools —
+  just three files working together:
+    - index.html   (this file)   -> the content and structure
+    - css/style.css               -> the look (colors, spacing, layout)
+    - js/script.js                -> small bits of interactivity (mobile menu)
+
+  HOW TO READ THIS FILE:
+  Every section below is wrapped in an HTML "tag" like <section> or <div>.
+  Tags come in pairs: <section> ... </section>. Everything between the
+  opening and closing tag "lives inside" that tag.
+  I've left a comment (like this one) above every section explaining
+  what it does and how to edit it. Comments start with an opening
+  marker and a closing marker, and are ignored by the browser —
+  they're just notes for you.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- This "title" shows up in the browser tab and in Google search results -->
+  <title>Enzee Construction | Roofing Contractor</title>
+  <meta name="description" content="Enzee Construction — professional roof repair, replacement, and inspection services. Free estimates, licensed and insured." />
+
+  <!-- This line loads our stylesheet (all the colors/fonts/layout rules) -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Loads a free icon set (little symbols) we use for phone/email/checkmarks -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       HEADER / NAVIGATION BAR
+       The bar that sticks to the top with the business name and menu links.
+       Each <a href="#id"> jumps down to the section with that id.
+       ========================================================= -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#top" class="logo">Enzee <span>Construction</span></a>
+
+      <!-- On phones this menu is hidden and replaced by the ☰ button -->
+      <nav class="main-nav" id="main-nav">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#area">Service Area</a>
+        <a href="#booking">Book a Free Estimate</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#booking" class="btn btn-primary nav-cta">Free Estimate</a>
+
+      <!-- Hamburger button, only visible on small screens (see style.css) -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO SECTION
+       The big banner at the top of the page. First thing visitors see.
+       Change the headline / subheadline text right here.
+       ========================================================= -->
+  <section id="top" class="hero">
+    <div class="container hero-inner">
+      <h1>Quality Roofing You Can Trust</h1>
+      <p class="hero-sub">
+        Enzee Construction provides expert roof repair, replacement, and
+        inspection services — built on honest work and local trust.
+      </p>
+      <div class="hero-buttons">
+        <a href="#booking" class="btn btn-primary btn-large">Get a Free Estimate</a>
+        <a href="tel:+10000000000" class="btn btn-outline btn-large">
+          <i class="fa-solid fa-phone"></i> Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TRUST STRIP
+       A row of quick reassurance points. Edit the text inside each <p>.
+       ========================================================= -->
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-item"><i class="fa-solid fa-shield-halved"></i><p>Licensed &amp; Insured</p></div>
+      <div class="trust-item"><i class="fa-solid fa-star"></i><p>Locally Trusted</p></div>
+      <div class="trust-item"><i class="fa-solid fa-clipboard-check"></i><p>Free Estimates</p></div>
+      <div class="trust-item"><i class="fa-solid fa-clock"></i><p>On-Time, Every Time</p></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SERVICES SECTION
+       Each "service-card" is one box. Copy/paste a whole
+       <div class="service-card">...</div> block to add a new service,
+       or delete one to remove a service.
+       ========================================================= -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">
+        Pricing depends on the scope of your job — every estimate is free
+        and tailored to your roof.
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fa-solid fa-house-chimney"></i>
+          <h3>Roof Replacement</h3>
+          <p>Full tear-off and replacement using durable, weather-tested materials built to last.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-hammer"></i>
+          <h3>Roof Repair</h3>
+          <p>Fast, reliable repairs for leaks, missing shingles, and general wear and tear.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h3>Roof Inspections</h3>
+          <p>Thorough inspections that catch small problems before they become expensive ones.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-cloud-showers-heavy"></i>
+          <h3>Storm &amp; Hail Damage</h3>
+          <p>Emergency response and insurance-claim support after severe weather.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-droplet"></i>
+          <h3>Gutter Installation &amp; Repair</h3>
+          <p>Keep water moving away from your home with properly installed, well-maintained gutters.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-trowel-bricks"></i>
+          <h3>New Construction Roofing</h3>
+          <p>Roofing built into new builds and additions, done right from the start.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ABOUT SECTION
+       A short story about the business. Edit the paragraph text.
+       ========================================================= -->
+  <section id="about" class="section section-alt">
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2 class="section-title">About Enzee Construction</h2>
+        <p>
+          Enzee Construction is a roofing contracting business built on
+          straightforward pricing, quality materials, and work you can
+          count on. We treat every roof like it's our own — because a
+          roof isn't just a repair, it's the thing protecting everything
+          underneath it.
+        </p>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-check"></i> Licensed &amp; insured roofing contractor</li>
+          <li><i class="fa-solid fa-check"></i> Free, no-pressure estimates</li>
+          <li><i class="fa-solid fa-check"></i> Clear communication from start to finish</li>
+          <li><i class="fa-solid fa-check"></i> Quality workmanship guaranteed</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SERVICE AREA SECTION
+       Replace the placeholder list with the towns/counties you serve.
+       ========================================================= -->
+  <section id="area" class="section">
+    <div class="container">
+      <h2 class="section-title">Proudly Serving The Flathead &amp; Lake County Areas
+      </h2>
+      <p class="section-sub">Enzee Construction serves homeowners and businesses throughout the region, including:</p>
+      <div class="area-list">
+        <span>Flathead County</span>
+        <span>Lake County</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       BOOKING SECTION — GOOGLE CALENDAR APPOINTMENT SCHEDULE
+       =========================================================
+       This is where customers book a free estimate for free, using
+       Google Calendar's built-in appointment scheduling (no monthly fee).
+
+       SETUP STEPS (see the full guide for details):
+       1. In Google Calendar, create an "Appointment schedule".
+       2. Click "Share" on that schedule and copy the embed code Google
+          gives you (Settings and sharing -> "Embed this calendar").
+       3. Replace the src="..." URL in the <iframe> below with the URL
+          Google gives you.
+       Until you do that, this shows a placeholder message instead.
+       ========================================================= -->
+  <section id="booking" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Book Your Free Estimate</h2>
+      <p class="section-sub">Pick a time that works for you — no cost, no obligation.</p>
+
+      <div class="booking-embed">
+        <!--
+          STEP 3 FROM ABOVE: once you have your real Google Calendar
+          appointment link, delete the "booking-placeholder" div
+          below and uncomment the iframe block underneath it (remove
+          the comment markers around it) and paste your link into
+          the src attribute.
+        -->
+          <i class="fa-solid fa-calendar-days"></i>
+          <p>Your Google Calendar booking widget will appear here.</p>
+          <p class="small">Follow the "Booking Setup" steps in your guide to connect it — it takes about 10 minutes.</p>
+        </div>
+
+
+        <iframe
+          src="https://calendar.app.google/kW36vgG2MtND6eGm9"
+          style="border: 0" width="100%" height="600" frameborder="0">
+        </iframe>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTACT / FOOTER SECTION
+       Update the phone number, email, and address placeholders.
+       ========================================================= -->
+  <section id="contact" class="section">
+    <div class="container contact-grid">
+      <div class="contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <h3>Call or Text</h3>
+        <p><a href="tel:+10000000000">(406) 334-3018</a></p>
+      </div>
+      <div class="contact-item">
+        <i class="fa-solid fa-envelope"></i>
+        <h3>Email</h3>
+        <p><a href="mailto:info@enzeeconstruction.com">enzeeconstruction@gmail.com</a></p>
+      </div>
+      <div class="contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <h3>Service Area</h3>
+        <p>Flathead County &amp; Lake County</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Enzee Construction. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- This line loads our small JavaScript file at the very end,
+       so the page content loads first before any interactivity runs. -->
+  <script src="js/script.js"></script>
+</body>
+</html>
