@@ -6,7 +6,7 @@
   just three files working together:
     - index.html   (this file)   -> the content and structure
     - css/style.css               -> the look (colors, spacing, layout)
-    - js/script.js                -> small bits of interactivity (mobile menu)
+    - js/script.js                -> small bits of interactivity (mobile menu, gallery lightbox)
 
   HOW TO READ THIS FILE:
   Every section below is wrapped in an HTML "tag" like <section> or <div>.
@@ -45,8 +45,9 @@
       <!-- On phones this menu is hidden and replaced by the ☰ button -->
       <nav class="main-nav" id="main-nav">
         <a href="#services">Services</a>
+        <a href="#gallery">Our Work</a>
         <a href="#about">About</a>
-        <a href="#area">Service Area</a>
+        <a href="#reviews">Reviews</a>
         <a href="#booking">Book a Free Estimate</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -144,10 +145,63 @@
   </section>
 
   <!-- =========================================================
+       GALLERY SECTION
+       Shows off real completed projects. Each "gallery-item" is one
+       photo. To add a photo: drop the image file into the images/
+       folder, then copy/paste a whole <div class="gallery-item">
+       block below and update the src and alt/caption text.
+       Clicking a photo opens it larger (see js/script.js).
+       ========================================================= -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Our Work</h2>
+      <p class="section-sub">A look at some recently completed roofing projects.</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/roof-commercial-1.jpg" alt="Standing seam metal roof on a commercial building, morning light" loading="lazy">
+          <span class="gallery-caption">Commercial Standing-Seam Metal Roof</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/roof-commercial-2.jpg" alt="Standing seam metal roof on a commercial building" loading="lazy">
+          <span class="gallery-caption">Commercial Standing-Seam Metal Roof</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/roof-lakeview.jpg" alt="Finished standing seam metal roof overlooking a lake" loading="lazy">
+          <span class="gallery-caption">Residential Metal Roof, Lakefront</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/roof-cedar-shake.jpg" alt="Freshly installed cedar shake roof" loading="lazy">
+          <span class="gallery-caption">Cedar Shake Roof Installation</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/roof-new-construction.jpg" alt="New construction building with a completed shingle roof" loading="lazy">
+          <span class="gallery-caption">New Construction Roofing</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/roof-repair-action.jpg" alt="Roofer performing shingle repair work" loading="lazy">
+          <span class="gallery-caption">Roof Repair In Progress</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       LIGHTBOX (used by the Gallery section above)
+       This is a hidden full-screen overlay. js/script.js shows it and
+       fills in the clicked photo when a gallery image is tapped.
+       You don't need to edit this block.
+       ========================================================= -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <!-- =========================================================
        ABOUT SECTION
        A short story about the business. Edit the paragraph text.
        ========================================================= -->
-  <section id="about" class="section section-alt">
+  <section id="about" class="section">
     <div class="container about-grid">
       <div class="about-text">
         <h2 class="section-title">About Enzee Construction</h2>
@@ -172,10 +226,9 @@
        SERVICE AREA SECTION
        Replace the placeholder list with the towns/counties you serve.
        ========================================================= -->
-  <section id="area" class="section">
+  <section id="area" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Proudly Serving The Flathead &amp; Lake County Areas
-      </h2>
+      <h2 class="section-title">Proudly Serving The Flathead &amp; Lake County Areas</h2>
       <p class="section-sub">Enzee Construction serves homeowners and businesses throughout the region, including:</p>
       <div class="area-list">
         <span>Flathead County</span>
@@ -185,18 +238,42 @@
   </section>
 
   <!-- =========================================================
+       TESTIMONIALS / REVIEWS SECTION
+       Each "testimonial-card" is one review. These are PLACEHOLDER
+       quotes — swap in real customer reviews when you have them.
+       Copy/paste a whole <div class="testimonial-card"> block to add
+       another one.
+       ========================================================= -->
+  <section id="reviews" class="section">
+    <div class="container">
+      <h2 class="section-title">What Customers Say</h2>
+      <p class="section-sub">Placeholder reviews below — swap these for your real customer quotes whenever you're ready.</p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-quote">"Enzee Construction replaced our roof ahead of schedule and left the yard spotless. Communication was great the whole way through."</p>
+          <p class="testimonial-name">— Placeholder Customer, Kalispell</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-quote">"Fast response after a storm and fair pricing. They handled the insurance paperwork so we didn't have to."</p>
+          <p class="testimonial-name">— Placeholder Customer, Polson</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-quote">"Professional from the free estimate to the final walkthrough. Would hire again without hesitation."</p>
+          <p class="testimonial-name">— Placeholder Customer, Whitefish</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
        BOOKING SECTION — GOOGLE CALENDAR APPOINTMENT SCHEDULE
        =========================================================
        This is where customers book a free estimate for free, using
        Google Calendar's built-in appointment scheduling (no monthly fee).
-
-       SETUP STEPS (see the full guide for details):
-       1. In Google Calendar, create an "Appointment schedule".
-       2. Click "Share" on that schedule and copy the embed code Google
-          gives you (Settings and sharing -> "Embed this calendar").
-       3. Replace the src="..." URL in the <iframe> below with the URL
-          Google gives you.
-       Until you do that, this shows a placeholder message instead.
        ========================================================= -->
   <section id="booking" class="section section-alt">
     <div class="container">
@@ -204,45 +281,69 @@
       <p class="section-sub">Pick a time that works for you — no cost, no obligation.</p>
 
       <div class="booking-embed">
-        <!--
-          STEP 3 FROM ABOVE: once you have your real Google Calendar
-          appointment link, delete the "booking-placeholder" div
-          below and uncomment the iframe block underneath it (remove
-          the comment markers around it) and paste your link into
-          the src attribute.
-        -->
-          <i class="fa-solid fa-calendar-days"></i>
-
-
         <iframe
           src="https://calendar.app.google/kW36vgG2MtND6eGm9"
           style="border: 0" width="100%" height="600" frameborder="0">
         </iframe>
-
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       CONTACT / FOOTER SECTION
-       Update the phone number, email, and address placeholders.
+       CONTACT SECTION
+       Phone/email/service-area cards, plus a free contact form.
+       The form uses FormSubmit.co, a free service that emails
+       submissions straight to your inbox with no account needed —
+       see the "Contact Form Setup" step in your guide to activate it.
        ========================================================= -->
   <section id="contact" class="section">
-    <div class="container contact-grid">
-      <div class="contact-item">
-        <i class="fa-solid fa-phone"></i>
-        <h3>Call or Text</h3>
-        <p><a href="tel:+10000000000">(406) 334-3018</a></p>
-      </div>
-      <div class="contact-item">
-        <i class="fa-solid fa-envelope"></i>
-        <h3>Email</h3>
-        <p><a href="mailto:info@enzeeconstruction.com">enzeeconstruction@gmail.com</a></p>
-      </div>
-      <div class="contact-item">
-        <i class="fa-solid fa-location-dot"></i>
-        <h3>Service Area</h3>
-        <p>Flathead County &amp; Lake County</p>
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-layout">
+        <div class="contact-grid">
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <h3>Call or Text</h3>
+            <p><a href="tel:+14063343018">(406) 334-3018</a></p>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <h3>Email</h3>
+            <p><a href="mailto:enzeeconstruction@gmail.com">enzeeconstruction@gmail.com</a></p>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>Service Area</h3>
+            <p>Flathead County &amp; Lake County</p>
+          </div>
+        </div>
+
+        <!--
+          CONTACT FORM SETUP: the first time someone submits this form,
+          FormSubmit will send a confirmation email to
+          enzeeconstruction@gmail.com — click the link in that email
+          ONCE to activate the form. After that, every submission
+          arrives straight to that inbox. No signup required.
+        -->
+        <form class="contact-form" action="https://formsubmit.co/enzeeconstruction@gmail.com" method="POST">
+          <!-- Sets the subject line of the email you receive -->
+          <input type="hidden" name="_subject" value="New message from Enzee Construction website">
+          <!-- Sends people back to your site's contact section after submitting -->
+          <input type="hidden" name="_next" value="https://enzeeconstruction.com/#contact">
+          <!-- A hidden "honeypot" field that catches spam bots (leave this as-is, don't remove it) -->
+          <input type="text" name="_honey" style="display:none">
+
+          <label for="form-name">Name</label>
+          <input type="text" id="form-name" name="name" required>
+
+          <label for="form-phone">Phone</label>
+          <input type="tel" id="form-phone" name="phone">
+
+          <label for="form-message">What do you need help with?</label>
+          <textarea id="form-message" name="message" rows="4" required></textarea>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
       </div>
     </div>
   </section>

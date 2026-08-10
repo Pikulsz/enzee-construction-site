@@ -18,11 +18,11 @@
 
 /* ---------- 1. VARIABLES (change these to re-theme the whole site) ---------- */
 :root {
-  --primary: #c0392b;        /* main brand color (a roofing red/brick tone) */
-  --primary-dark: #922b21;   /* darker shade, used for hover states */
-  --dark: #1c1c1c;           /* near-black, used for headings/footer */
-  --gray: #5f5f5f;           /* body text gray */
-  --light-bg: #f7f5f3;       /* light section background */
+  --primary: #3b6e91;        /* steel blue — main brand color */
+  --primary-dark: #2c5470;   /* darker steel blue, used for hover states */
+  --dark: #2e3b45;           /* dark slate, used for headings/footer */
+  --gray: #57636b;           /* slate gray, used for body text */
+  --light-bg: #eef2f5;       /* light slate-tinted section background */
   --white: #ffffff;
   --radius: 10px;
   --max-width: 1150px;
@@ -77,6 +77,10 @@ img {
   padding: 12px 24px;
   border-radius: var(--radius);
   font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
   transition: background 0.2s ease, transform 0.15s ease;
 }
 
@@ -130,11 +134,12 @@ img {
 
 .main-nav {
   display: flex;
-  gap: 28px;
+  gap: 24px;
 }
 .main-nav a {
   font-weight: 600;
   color: var(--dark);
+  white-space: nowrap;
 }
 .main-nav a:hover {
   color: var(--primary);
@@ -142,6 +147,7 @@ img {
 
 .nav-cta {
   display: inline-block;
+  white-space: nowrap;
 }
 
 /* Hamburger button — hidden by default, shown only on small screens */
@@ -163,7 +169,7 @@ img {
 
 /* ---------- 5. HERO ---------- */
 .hero {
-  background: linear-gradient(135deg, var(--dark), #3a2323 70%);
+  background: linear-gradient(135deg, var(--dark), #182229 70%);
   color: var(--white);
   padding: 110px 0;
   text-align: center;
@@ -176,7 +182,7 @@ img {
 .hero-sub {
   max-width: 620px;
   margin: 0 auto 32px;
-  color: #e7e0dc;
+  color: #d7dee3;
   font-size: 1.1rem;
 }
 .hero-buttons {
@@ -233,7 +239,7 @@ img {
 }
 .service-card {
   background: var(--white);
-  border: 1px solid #eee;
+  border: 1px solid #e4e9ec;
   border-radius: var(--radius);
   padding: 32px 24px;
   text-align: center;
@@ -253,7 +259,74 @@ img {
   font-size: 1.15rem;
 }
 
-/* ---------- 9. ABOUT ---------- */
+/* ---------- 9. GALLERY ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+  background: var(--dark);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+.gallery-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Lightbox: a full-screen overlay for viewing a gallery photo larger.
+   Hidden by default; js/script.js adds the "open" class to show it. */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 18, 21, 0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ---------- 10. ABOUT ---------- */
 .about-grid {
   max-width: 720px;
   margin: 0 auto;
@@ -271,7 +344,7 @@ img {
   margin-right: 10px;
 }
 
-/* ---------- 10. SERVICE AREA ---------- */
+/* ---------- 11. SERVICE AREA ---------- */
 .area-list {
   display: flex;
   flex-wrap: wrap;
@@ -279,43 +352,65 @@ img {
   justify-content: center;
 }
 .area-list span {
-  background: var(--light-bg);
+  background: var(--white);
   padding: 10px 20px;
   border-radius: 999px;
   font-weight: 600;
   color: var(--dark);
+  border: 1px solid #e4e9ec;
 }
 
-/* ---------- 11. BOOKING ---------- */
+/* ---------- 12. TESTIMONIALS ---------- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.testimonial-card {
+  background: var(--light-bg);
+  border-radius: var(--radius);
+  padding: 32px 26px;
+}
+.stars {
+  color: #d9a441;
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+}
+.testimonial-quote {
+  font-style: italic;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+.testimonial-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary);
+}
+
+/* ---------- 13. BOOKING ---------- */
 .booking-embed {
   max-width: 800px;
   margin: 0 auto;
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--white);
-  border: 1px solid #eee;
-}
-.booking-placeholder {
-  padding: 60px 24px;
-  text-align: center;
-}
-.booking-placeholder i {
-  font-size: 2.4rem;
-  color: var(--primary);
-  margin-bottom: 16px;
-}
-.booking-placeholder .small {
-  font-size: 0.9rem;
-  color: #999;
-  margin-top: 8px;
+  border: 1px solid #e4e9ec;
 }
 
-/* ---------- 12. CONTACT ---------- */
+/* ---------- 14. CONTACT ---------- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 28px;
-  text-align: center;
+}
+.contact-item {
+  text-align: left;
 }
 .contact-item i {
   font-size: 1.6rem;
@@ -327,17 +422,50 @@ img {
   font-size: 1.05rem;
 }
 
-/* ---------- 13. FOOTER ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--light-bg);
+  padding: 32px;
+  border-radius: var(--radius);
+}
+.contact-form label {
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #d3dbe0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+.contact-form button {
+  margin-top: 18px;
+  align-self: flex-start;
+}
+
+/* ---------- 15. FOOTER ---------- */
 .site-footer {
   background: var(--dark);
-  color: #bbb;
+  color: #b7c0c6;
   padding: 28px 0;
   text-align: center;
   font-size: 0.9rem;
 }
 
 /* =====================================================================
-   14. RESPONSIVE / MOBILE STYLES
+   16. RESPONSIVE / MOBILE STYLES
    These rules only apply when the screen is 850px wide or narrower
    (phones and small tablets). This is called a "media query".
    ===================================================================== */
@@ -357,7 +485,8 @@ img {
     transition: max-height 0.25s ease;
   }
   .main-nav.open {
-    max-height: 320px;
+    max-height: 360px;
+    overflow-y: auto;
   }
   .main-nav a {
     width: 100%;
@@ -372,13 +501,26 @@ img {
     display: none;
   }
   .services-grid,
-  .contact-grid {
+  .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .trust-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
   .hero {
     padding: 80px 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
   }
 }
